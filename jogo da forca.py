@@ -1,28 +1,31 @@
 from time import sleep
+print('Fill this part alone')
 
-## palavra do jogador
-palavra = str(input('Qual é a palavra: '))
 
-##esconder palavra
+palavra = str(input('What is the word: '))
+
+
 c = ''
 while not len(c) == 500:
     c = c + ' '
     print(c)
 
-##tentativas
+print('you can now pass it to the other player, good luck (:')
+
+
 tent = 5
 
-##letrastentadas
+
 letrastent = []
 
-##lista
+
 tracosedecifrados = ['_'] * len(palavra)
 
-##O inicio do loop
+
 while tent > 0:
 
-    ##menu
-    print('Bem vindo!!')
+    
+    print('Welcome to the hangman game!!')
     if tent == 5:
         print('''|--------------------------|
      |                   __|__
@@ -126,19 +129,19 @@ while tent > 0:
              
     for palavralimpa in tracosedecifrados:
         print(palavralimpa, end='')
-    print(f'\nVoçê tem {tent} tentativas!')
-    print(f'Letras tentadas: {letrastent}')
+    print(f'\nyou have {tent} attempts!')
+    print(f'attempted letters: {letrastent}')
     
     
-    #letra
-    letra = str(input('\nDigite uma letra que deseja verificar: '))
+
+    letra = str(input('\nwrite a letter that you wish to verify: '))
     for tentadas in letrastent:
         if letra in tentadas:
-            print(f'\033[34mVoçê já tentou essa letra!!!\033[m')
+            print(f'\033[34myou have already attempted that letter!!!\033[m')
     
     letrastent.append(letra)
 
-    ##checkar
+    
     if letra in palavra:
         for i in range(len(palavra)):
             if palavra[i] == letra:
@@ -148,10 +151,10 @@ while tent > 0:
     
     if '_' not in tracosedecifrados:
         print(palavra)
-        print(f'Voçê ganhou!! A palavra era {palavra}!')
+        print(f'You won (: !! The word was \033[34m{palavra}\033[m!')
         break
     if tent == 0:
-        print(f'\033[31mVoçê perdeu!!\033[m a palavra era \033[34m{palavra}\033[m!')
+        print(f'\033[31mYou lost ): !!\033[m the word was \033[34m{palavra}\033[m!')
         print('''\033[31m..........................
 .                     .
 .                     .
